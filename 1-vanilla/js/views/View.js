@@ -14,7 +14,7 @@ export default {
 
   emit(event, data) {
     const evt = new CustomEvent(event, { detail: data })
-    this.el.dispatchEvent(evt)
+    this.el. dispatchEvent(evt)
     return this
   },
 
