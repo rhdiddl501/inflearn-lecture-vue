@@ -11,6 +11,7 @@ KeywordView.render = function (data = []) {
     this.el.innerHTML = data.length? this.getKeywordHtml(data) : 'No recommended word'
     this.bindEvent()
     this.show()
+    return this
 }
 
 KeywordView.getKeywordHtml = function(data) {
