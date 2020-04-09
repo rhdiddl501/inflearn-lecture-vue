@@ -53,7 +53,6 @@ export default {
                 HistoryView.render(data).bindRemove()
             })
         }
-
         TabView.setActiveTab(this.selectedTab)
         ResultView.hide()
     },
@@ -67,6 +66,7 @@ export default {
         SearchModel.list(input).then(data => {
             this.onSearchResult(data)
         })
+        HistoryModel.add(input)
         TabView.hide()
         KeywordView.hide()
         ResultView.show()
