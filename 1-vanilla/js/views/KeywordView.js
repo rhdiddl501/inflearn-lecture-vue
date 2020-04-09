@@ -15,7 +15,7 @@ KeywordView.render = function (data = []) {
 
 KeywordView.getKeywordHtml = function(data) {
     return data.reduce((html,item,i) => {
-        html += `<li data-keyword="${item.name}">
+        html += `<li data-keyword="${item.keyword}">
         <span calss="number">${i+1}</span> ${item.keyword}
         </li>`
         return html
@@ -29,7 +29,7 @@ KeywordView.bindEvent = function () {
 }
 
 KeywordView.onClickKeyword = function (e) {
-    const {keyword} = e.currentTarget.dataset
-    this.emit('@click', keyword)
+    const keyword = e.currentTarget.dataset.keyword
+    this.emit('@click', {keyword})
 }
 export default KeywordView

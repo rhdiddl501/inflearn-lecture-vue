@@ -29,6 +29,7 @@ export default {
 
     onClickKeyword(keyword) {
         this.search(keyword)
+        FormView.setInputValue(keyword)
     },
 
     tabChange(tabName){
