@@ -4,21 +4,38 @@
     <h2 class="container">검색</h2>
   </header>
 
-  <SearchForm></SearchForm>
+  <SearchComponent :searchVal="searchValue" v-on:@search="search"></SearchComponent>
+  <div v-if="submitted">
+  <SearchResultComponent :datas="searchResultData"></SearchResultComponent>
+  </div>
 </div>
 </template>
 
 <script>
-import SearchForm from './components/SearchForm.vue'
+import SearchComponent from './components/SearchComponent.vue'
+import SearchResultComponent from './components/ResultComponent.vue'
+
+import SearchModel from './models/SearchModel.js'
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      searchValue: '',
+      submitted: false,
+      searchResultData: []
     }
   },
   components: {
-    SearchForm
+    SearchComponent, SearchResultComponent
+  },
+  methods: {
+    search(searchVal) {
+      this.searchValue = searchVal
+      SearchModel.list().then(data => {
+        this.searchResultData = data
+      })
+      this.submitted = true
+    }
   }
 }
 </script>
