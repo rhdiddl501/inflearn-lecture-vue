@@ -1,6 +1,6 @@
 <template>
     <ul class="tabs">
-        <li v-for="tab in tabs" :key="tab">
+        <li v-for="tab in tabs" :key="tab" :class="{active: tab === '추천 검색어'}">
             {{tab}}
         </li>
     </ul>
