@@ -13,7 +13,7 @@
         <div v-else>
         <TabComponent @@changeTab="selectedTab" :tabs="tabs"></TabComponent>
         <ListComponent :lists="lists" :tabName="tabName"
-          @@keyword="clickKeyword"/>
+          @@keyword="clickKeyword" @@remove="removeHistory"/>
         </div>
       </div>
     </div>
@@ -83,6 +83,10 @@ export default {
     },
     clickKeyword(keyword){
       this.search(keyword)
+    },
+    removeHistory(keyword){
+      HistoryModel.remove(keyword)
+      this.fetchHistory()
     }
   }
 };
