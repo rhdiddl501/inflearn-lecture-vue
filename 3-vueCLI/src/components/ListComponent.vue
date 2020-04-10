@@ -1,6 +1,7 @@
 <template>
     <ul class="list">
-        <li v-for="(list, index) in lists" :key="list.keyword">
+        <li v-for="(list, index) in lists" :key="list.keyword"
+            @click="keyword(list.keyword)">
             <span v-if="tabName === '추천 검색어'" class="number">
                 {{index+1}}</span>
             {{list.keyword}}
@@ -16,6 +17,11 @@
 export default {
     props: [
         'lists','tabName'
-    ]
+    ],
+    methods: {
+        keyword(keyword) {
+            this.$emit('@keyword', keyword)
+        }
+    }
 }
 </script>

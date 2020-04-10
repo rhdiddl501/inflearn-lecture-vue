@@ -11,9 +11,11 @@
         <div v-if="submitted">
           <SearchResultComponent :datas="searchResultData"></SearchResultComponent>
         </div>
-
+        <div v-else>
         <TabComponent @@changeTab="selectedTab" :tabs="tabs"></TabComponent>
-        <ListComponent :lists="lists" :tabName="tabName"/>
+        <ListComponent :lists="lists" :tabName="tabName"
+          @@keyword="clickKeyword"/>
+        </div>
       </div>
     </div>
   </div>
@@ -77,6 +79,9 @@ export default {
       HistoryModel.list().then(data => {
         this.lists = data
       })
+    },
+    clickKeyword(keyword){
+      this.search(keyword)
     }
   }
 };
