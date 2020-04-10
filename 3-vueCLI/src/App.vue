@@ -6,7 +6,6 @@
 
     <div class="container">
       <SearchComponent :searchVal="searchValue" v-on:@search="search" v-on:@reset="reset"></SearchComponent>
-
       <div class="content">
         <div v-if="submitted">
           <SearchResultComponent :datas="searchResultData"></SearchResultComponent>
@@ -53,11 +52,13 @@ export default {
   },
   methods: {
     search(searchVal) {
+      
       this.searchValue = searchVal;
       SearchModel.list().then(data => {
         this.searchResultData = data;
       });
       this.submitted = true;
+
     },
     reset() {
       this.submitted = false;

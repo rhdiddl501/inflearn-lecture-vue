@@ -1,15 +1,15 @@
 <template>
+<div>
     <form @submit.prevent="emitSearch">
         <input v-model="query" type="text" placeholder="검색어를 입력해 주세요">
         <button v-show="isShowBtn" type="reset" class="btn-reset" @click="reset"/>
     </form>
+</div>
 </template>
 
 <script>
 export default {
-    prop:[
-        'searchVal'
-    ],
+    props:['searchVal'],
     data() {
         return {
             query: this.searchVal,
@@ -22,6 +22,9 @@ export default {
                 this.isShowBtn = false
                 this.reset()
             } else this.isShowBtn = true
+        },
+        searchVal(newVal, oldVal) {
+            this.query = newVal
         }
     },
     methods: {
