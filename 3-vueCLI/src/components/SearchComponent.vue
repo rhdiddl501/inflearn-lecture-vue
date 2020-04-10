@@ -20,12 +20,14 @@ export default {
         query() {
             if(this.query.length === 0) {
                 this.isShowBtn = false
+                this.reset()
             } else this.isShowBtn = true
         }
     },
     methods: {
         reset() {
             this.query = ''
+            this.$emit('@reset')
         },
         emitSearch() {
             this.$emit('@search', this.query.trim())

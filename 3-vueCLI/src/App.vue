@@ -4,10 +4,11 @@
     <h2 class="container">검색</h2>
   </header>
 
-  <SearchComponent :searchVal="searchValue" v-on:@search="search"></SearchComponent>
+  <SearchComponent :searchVal="searchValue" v-on:@search="search"
+    v-on:@reset="reset"></SearchComponent>
   <div v-if="submitted">
   <SearchResultComponent :datas="searchResultData"></SearchResultComponent>
-  </div>
+  </div> 
 </div>
 </template>
 
@@ -35,6 +36,9 @@ export default {
         this.searchResultData = data
       })
       this.submitted = true
+    },
+    reset() {
+      this.submitted = false
     }
   }
 }
