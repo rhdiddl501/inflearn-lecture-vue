@@ -52,13 +52,13 @@ export default {
   },
   methods: {
     search(searchVal) {
-      
+      if(searchVal.trim()==='') return
       this.searchValue = searchVal;
       SearchModel.list().then(data => {
         this.searchResultData = data;
       });
       this.submitted = true;
-
+      HistoryModel.add(searchVal)
     },
     reset() {
       this.submitted = false;

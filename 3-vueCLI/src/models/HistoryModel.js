@@ -16,8 +16,8 @@ export default {
             this.remove(keyword)
         }
 
-        const data = '12.31'
-        this.data = [{keyword, data}, ...this.data]
+        const date = '12.31'
+        this.data = [{keyword, date}, ...this.data]
     },
 
     remove(keyword) {
