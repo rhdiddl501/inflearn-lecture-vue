@@ -17,7 +17,7 @@ export default {
         query() {
             if(this.query.length === 0) {
                 this.isShowBtn = false
-            }
+            } else this.isShowBtn = true
         }
     },
     method: {
