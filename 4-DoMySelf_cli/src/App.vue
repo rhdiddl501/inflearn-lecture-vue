@@ -5,7 +5,7 @@
       <SearchForm @@submit="submit" @@reset="reset"/>
       <div class="content">
         <div v-if="submitted">
-          검색결과
+          <ResultComponent/>
         </div>
         <div v-else>
           
@@ -17,6 +17,8 @@
 
 <script>
 import SearchForm from './components/SearchFormComponent.vue'
+import ResultComponent from './components/SearchResultComponent.vue'
+
 export default {
   data () {
     return {
@@ -32,7 +34,7 @@ export default {
     }
   },
   components: {
-    SearchForm
+    SearchForm, ResultComponent
   }
 }
 </script>
