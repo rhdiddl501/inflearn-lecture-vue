@@ -2,13 +2,14 @@
   <div id="app">
     <header><h2 class="container">검색</h2></header>
     <div class="container">
-      <SearchForm @@submit="submit" @@reset="reset"/>
+      <SearchForm :selectedKeyword="selectedKeyword" @@submit="submit" @@reset="reset"/>
       <div class="content">
         <div v-if="submitted">
           <ResultComponent/>
         </div>
         <div v-else>
           <TabComponent/>
+          <ListComponent @@search="search"/>
         </div>
       </div>
     </div>
@@ -19,11 +20,12 @@
 import SearchForm from './components/SearchFormComponent.vue'
 import ResultComponent from './components/SearchResultComponent.vue'
 import TabComponent from './components/TabComponent.vue'
-
+import ListComponent from './components/ListComponent.vue'
 export default {
   data () {
     return {
-      submitted: false
+      submitted: false,
+      selectedKeyword: ''
     }
   },
   methods: {
@@ -32,10 +34,17 @@ export default {
     },
     reset() {
       this.submitted = false
+    },
+    search(keyword) {
+      this.submit()
+      this.selectedKeyword = keyword
     }
   },
   components: {
-    SearchForm, ResultComponent, TabComponent
+    SearchForm,
+    ResultComponent,
+    TabComponent,
+    ListComponent
   }
 }
 </script>

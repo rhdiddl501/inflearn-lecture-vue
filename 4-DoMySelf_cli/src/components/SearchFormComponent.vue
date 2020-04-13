@@ -8,6 +8,7 @@
 
 <script>
 export default {
+    props: [ 'selectedKeyword' ],
     data () {
         return {
             searchVal: '',
@@ -21,6 +22,9 @@ export default {
                 this.showBtn = false
                 this.reset()
             }
+        },
+        selectedKeyword() {
+            this.searchVal = this.selectedKeyword
         }
     },
     methods: {

@@ -5,12 +5,6 @@
                 {{tab}}
             </li>
         </ul>
-        <div v-if="selectedTab === '추천검색어'">
-            추천검색어 리스트
-        </div>
-        <div v-else>
-            최근검색어 리스트
-        </div>
     </div>
 </template>
 
