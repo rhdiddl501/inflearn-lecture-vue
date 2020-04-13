@@ -8,7 +8,7 @@
           <ResultComponent/>
         </div>
         <div v-else>
-          
+          <TabComponent/>
         </div>
       </div>
     </div>
@@ -18,6 +18,7 @@
 <script>
 import SearchForm from './components/SearchFormComponent.vue'
 import ResultComponent from './components/SearchResultComponent.vue'
+import TabComponent from './components/TabComponent.vue'
 
 export default {
   data () {
@@ -34,7 +35,7 @@ export default {
     }
   },
   components: {
-    SearchForm, ResultComponent
+    SearchForm, ResultComponent, TabComponent
   }
 }
 </script>
