@@ -10,15 +10,10 @@
 
 <script>
 export default {
-    data () {
-        return {
-            tabs: ['추천검색어', '최근검색어'],
-            selectedTab: '추천검색어'
-        }
-    },
+    props: [ 'tabs', 'selectedTab' ],
     methods: {
         changeTab(tabName) {
-            this.selectedTab = tabName
+            this.$emit('@changeTab',tabName)
         }
     }
 }

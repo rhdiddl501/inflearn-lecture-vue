@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    props: [ 'selectedKeyword' ],
+    props: [ 'searchedVal' ],
     data () {
         return {
             searchVal: '',
@@ -23,13 +23,13 @@ export default {
                 this.reset()
             }
         },
-        selectedKeyword() {
-            this.searchVal = this.selectedKeyword
+        searchedVal() {
+            this.searchVal = this.searchedVal
         }
     },
     methods: {
-        submit() {
-            this.$emit('@submit')
+        submit(inputVal) {
+            this.$emit('@search', inputVal)
         },
         reset() {
             this.searchVal = ''
