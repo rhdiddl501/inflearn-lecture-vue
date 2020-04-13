@@ -11,7 +11,7 @@
           <SearchResultComponent :datas="searchResultData"></SearchResultComponent>
         </div>
         <div v-else>
-        <TabComponent @@changeTab="selectedTab" :tabs="tabs"></TabComponent>
+        <TabComponent @@changeTab="selectedTab" :tabs="tabs" :tabName="tabName"></TabComponent>
         <ListComponent :lists="lists" :tabName="tabName"
           @@keyword="clickKeyword" @@remove="removeHistory"/>
         </div>
@@ -48,6 +48,7 @@ export default {
     ListComponent
   },
   created() {
+    this.fetchHistory()
     this.fetchKeyword()
   },
   methods: {
@@ -59,17 +60,20 @@ export default {
       });
       this.submitted = true;
       HistoryModel.add(searchVal)
+      
+      this.fetchHistory()
     },
     reset() {
       this.submitted = false;
+      this.fetchHistory()
     },
     selectedTab(selectedTab) {
+      this.tabName = selectedTab
       if(selectedTab == this.tabs[0]){
         this.fetchKeyword()
       } else {
         this.fetchHistory()
       }
-      this.tabName = selectedTab
     },
     fetchKeyword() {
       KeywordModel.list().then(data => {

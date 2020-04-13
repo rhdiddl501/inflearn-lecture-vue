@@ -1,6 +1,6 @@
 <template>
     <ul class="tabs">
-        <li v-for="tab in tabs" :key="tab" :class="{active: tab === selectedTab}"
+        <li v-for="tab in tabs" :key="tab" :class="{active: tab === tabName}"
             @click="selectTab(tab)">
             {{tab}}
         </li>
@@ -9,16 +9,9 @@
 
 <script>
 export default {
-    props: [ 'tabs' ],
-    data () {
-        return {
-            
-            selectedTab: '추천 검색어'
-        }
-    },
+    props: [ 'tabs', 'tabName' ],
     methods: {
         selectTab(selectedTab) {
-            this.selectedTab = selectedTab
             this.$emit('@changeTab',selectedTab)
         }
     }
