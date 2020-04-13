@@ -65,7 +65,6 @@ export default {
     },
     reset() {
       this.submitted = false;
-      this.fetchHistory()
     },
     selectedTab(selectedTab) {
       this.tabName = selectedTab

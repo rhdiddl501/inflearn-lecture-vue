@@ -18,8 +18,6 @@
 import SearchModel from '../models/SearchModel.js'
 
 export default {
-    props: [
-        'datas'
-    ]
+    props: [ 'datas' ]
 }
 </script>
